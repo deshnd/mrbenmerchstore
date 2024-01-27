@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Ben-Yaakov Merch</title>
+    <style>
+        /* Your existing styles remain unchanged */
+        @keyframes textShow{
+            from{color:red;}
+            to{color:black;}
+        }
+        p {
+            text-align: center;
+            font-family: 'Space Mono', monospace;
+        }
+        
+        button{
+            font-family: 'Space Mono', monospace;
+            animation-name: textShow;
+            animation-duration: 4s;
+            background-color: red;
+            border: none;
+        }
+        button:hover{
+            color:white;
+        }
+        button:active{
+            color:red;
+        }
+
+        #contentContainer{
+            color: white;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+        }
+
+        #textBig {
+            font-size: 250%;
+
+        }
+
+        #textSmall{
+            font-size: 90%;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+            position: relative;
+        }
+
+        .redBox {
+            width: 100vw;
+            background-color: red;
+            left: 0;
+            transition: top 1s ease;
+            z-index: 1;
+        }
+
+        #redBoxTop {
+            position: relative;
+            height: 100vh;
+            top: 0;
+        }
+
+        #redBoxBottom {
+            position: absolute;
+            height: 6vh;
+            border-radius: 8px;
+            bottom: 0;
+            z-index: 2;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #spinGifContainer {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            display: none;
+            border: 2px solid black;
+            padding: 1px;
+            transition: top 1s ease;
+        }
+
+        #spinGif {
+            max-width: 100%;
+        }
+
+        #waveContainer{
+            position:absolute;
+            top: 40%;
+            left: 200%;
+            size: 30%;
+            height:50%;
+            width: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            display: block; 
+            transition: left 1s ease;
+            padding: 1px;
+        }
+
+        #waveGif {
+            max-width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="redBoxTop" class="redBox"></div>
+    <div id="redBoxBottom" class="redBox">
+        <button onclick="buttonClick(1)">home</button>
+        <button onclick="buttonClick(2)">shop</button>
+        <button onclick="buttonClick(3)">about</button>
+    </div>
+
+    <div id="spinGifContainer">
+        <img id="spinGif" src="spin.gif" alt="Spin GIF">
+        <p><br>loading...</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var spinGifContainer = document.getElementById("spinGifContainer");
+            spinGifContainer.style.display = "block";
+            var redBoxTop = document.getElementById("redBoxTop");
+            var redBoxBottom = document.getElementById("redBoxBottom");
+            var waveContainer = document.getElementById("waveContainer"); 
+            setTimeout(function() {
+                spinGifContainer.style.top = "-150vh";
+                redBoxTop.style.top = "-100vh";
+                waveContainer.style.left = "80%";
+            }, 4000); 
+        });
+
+        function buttonClick(buttonNumber) {
+           
+        }
+    </script>
+    <div id="contentContainer">
+        <p id="textBig">Mr. Ben-Yaakov</p><p id="textSmall">The of Computer Teacher Science All Time</p>
+    </div>
+    <div id="waveContainer">
+        <img id="waveGif" src="wave.gif" alt="Wave GIF">
+    </div>
+</body>
+</html>
